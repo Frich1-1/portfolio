@@ -1,0 +1,79 @@
+/* ==================== APP LEVEL STYLES ==================== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > main {
+  flex: 1;
+}
+
+/* Section dividers */
+#about,
+#skills,
+#portfolio,
+#blog,
+#resume,
+#contact {
+  position: relative;
+}
+
+/* Alternating section backgrounds */
+#about {
+  background: var(--color-bg);
+}
+
+#skills {
+  background: var(--color-bg-alt);
+}
+
+#portfolio {
+  background: var(--color-bg);
+}
+
+#blog {
+  background: var(--color-bg-alt);
+}
+
+#resume {
+  background: var(--color-bg);
+}
+
+#contact {
+  background: var(--color-bg-alt);
+}
+
+/* Smooth section transitions with curved dividers */
+#skills::before,
+#blog::before,
+#contact::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--color-bg);
+  clip-path: ellipse(55% 100% at 50% 0%);
+  z-index: 1;
+}
+
+#about::before,
+#portfolio::before,
+#resume::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--color-bg-alt);
+  clip-path: ellipse(55% 100% at 50% 0%);
+  z-index: 1;
+}
+
+/* First section after hero doesn't need top curve from alt bg */
+#about::before {
+  display: none;
+}
