@@ -27,7 +27,7 @@
 }
 
 .navbar__logo {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-size-lg);
   display: flex;
   align-items: center;
@@ -42,10 +42,7 @@
 
 .navbar__logo-bold {
   font-weight: 800;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .navbar__logo-light {
@@ -70,8 +67,7 @@
 }
 
 .navbar__link:hover {
-  color: var(--color-primary);
-  background: var(--color-primary-50);
+  color: var(--color-accent);
 }
 
 .navbar__link--active {

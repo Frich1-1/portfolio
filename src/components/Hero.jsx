@@ -5,12 +5,6 @@ import './Hero.css';
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      {/* Background decoration */}
-      <div className="hero__bg-grid" />
-      <div className="hero__bg-gradient" />
-      <div className="hero__bg-orb hero__bg-orb--1" />
-      <div className="hero__bg-orb hero__bg-orb--2" />
-
       <div className="hero__container">
         <div className="hero__content">
           <div className="hero__badge">
@@ -54,8 +48,6 @@ export default function Hero() {
         </div>
 
         <div className="hero__image-wrapper">
-          <div className="hero__image-ring" />
-          <div className="hero__image-glow" />
           <div className="hero__image-frame">
             <img src="/richie-photo.png" alt="Richie Frederico Wong" className="hero__image" />
           </div>

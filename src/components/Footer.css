@@ -36,7 +36,7 @@
 }
 
 .footer__logo {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-size-xl);
   display: inline-flex;
   align-items: center;
@@ -46,10 +46,7 @@
 
 .footer__logo-bold {
   font-weight: 800;
-  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-accent-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary-400);
 }
 
 .footer__logo-light {
@@ -140,7 +137,6 @@
   background-color: var(--color-primary);
   border-color: var(--color-primary-light);
   transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(8, 145, 178, 0.3);
 }
 
 /* Footer Bottom */

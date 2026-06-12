@@ -44,36 +44,3 @@
   background: var(--color-bg-alt);
 }
 
-/* Smooth section transitions with curved dividers */
-#skills::before,
-#blog::before,
-#contact::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: var(--color-bg);
-  clip-path: ellipse(55% 100% at 50% 0%);
-  z-index: 1;
-}
-
-#about::before,
-#portfolio::before,
-#resume::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: var(--color-bg-alt);
-  clip-path: ellipse(55% 100% at 50% 0%);
-  z-index: 1;
-}
-
-/* First section after hero doesn't need top curve from alt bg */
-#about::before {
-  display: none;
-}

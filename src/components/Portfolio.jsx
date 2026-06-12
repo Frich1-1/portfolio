@@ -9,8 +9,7 @@ const projects = [
     period: 'Feb 2026 - March 2026',
     description: 'Coordinated sprint tasks and documentation across a 3-person dev team, ensuring on-time delivery of project milestones. Designed and queried relational databases using PostgreSQL to support data storage and retrieval for the audit system.',
     tags: ['PostgreSQL', 'Agile/Scrum', 'Sprint Planning', 'Database Design', 'Security Audit'],
-    links: {},
-    gradient: 'linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)'
+    links: {}
   },
   {
     title: 'WMP Event Management App',
@@ -20,8 +19,7 @@ const projects = [
     tags: ['Android Studio', 'Java/Kotlin', 'Mobile Programming', 'UX Design', 'Event Tracking'],
     links: {
       github: 'https://github.com/Frich1-1/wmpproject'
-    },
-    gradient: 'linear-gradient(135deg, #6366F1 0%, #818CF8 100%)'
+    }
   }
 ];
 
@@ -40,10 +38,7 @@ export default function Portfolio() {
         <div className="portfolio__grid stagger-children">
           {projects.map((project) => (
             <div key={project.title} className="portfolio__card">
-              <div 
-                className="portfolio__card-header"
-                style={{ background: project.gradient }}
-              >
+              <div className="portfolio__card-body">
                 <div className="portfolio__meta">
                   <div className="portfolio__meta-item">
                     <Calendar size={14} />
@@ -54,10 +49,8 @@ export default function Portfolio() {
                     <span>{project.role}</span>
                   </div>
                 </div>
-                <h3 className="portfolio__card-title">{project.title}</h3>
-              </div>
 
-              <div className="portfolio__card-body">
+                <h3 className="portfolio__card-title">{project.title}</h3>
                 <p className="portfolio__card-desc">{project.description}</p>
                 
                 <div className="portfolio__tags">
