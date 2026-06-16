@@ -14,7 +14,7 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
   // Replace with your Formspree form ID once created
-  const FORMSPREE_FORM_ID = 'my-portfolio-contact'; 
+  const FORMSPREE_FORM_ID = 'mzdqondp'; 
 
   const handleChange = (e) => {
     setFormState({
@@ -191,10 +191,6 @@ export default function Contact() {
                   Oops! Something went wrong. You can also contact me directly at the email listed.
                 </div>
               )}
-
-              <p className="contact__form-note">
-                Note: In production, configure your Formspree endpoint ID in <code>Contact.jsx</code>.
-              </p>
             </form>
           </div>
         </div>
