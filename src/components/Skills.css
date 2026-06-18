@@ -63,6 +63,19 @@
   color: var(--color-text);
 }
 
+.skills__progress-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.skills__progress-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
 .skills__progress-percent {
   color: var(--color-primary);
 }

@@ -1,13 +1,13 @@
-import { Code, Wrench, Brain, ClipboardList, Trophy, Users, MessageSquare, Layout } from 'lucide-react';
+import { Code, Wrench, Brain, ClipboardList, Trophy, Users, MessageSquare, Layout, Globe, Cpu, Database, Server, GitBranch, Flame } from 'lucide-react';
 import './Skills.css';
 
 const techSkills = [
-  { name: 'HTML & CSS', level: 85 },
-  { name: 'JavaScript', level: 75 },
-  { name: 'PHP', level: 70 },
-  { name: 'Laravel Framework', level: 65 },
-  { name: 'Databases (MySQL & PostgreSQL)', level: 72 },
-  { name: 'Git Version Control', level: 70 },
+  { name: 'HTML & CSS', level: 85, icon: <Globe size={16} /> },
+  { name: 'JavaScript', level: 75, icon: <Cpu size={16} /> },
+  { name: 'Databases (MySQL & PostgreSQL)', level: 72, icon: <Database size={16} /> },
+  { name: 'PHP', level: 70, icon: <Server size={16} /> },
+  { name: 'Git Version Control', level: 70, icon: <GitBranch size={16} /> },
+  { name: 'Laravel Framework', level: 65, icon: <Flame size={16} /> },
 ];
 
 const tools = [
@@ -70,7 +70,10 @@ export default function Skills() {
               {techSkills.map((skill) => (
                 <div key={skill.name} className="skills__progress-item">
                   <div className="skills__progress-info">
-                    <span className="skills__progress-name">{skill.name}</span>
+                    <span className="skills__progress-name">
+                      <span className="skills__progress-icon">{skill.icon}</span>
+                      {skill.name}
+                    </span>
                     <span className="skills__progress-percent">{skill.level}%</span>
                   </div>
                   <div className="skills__progress-bar-bg">
