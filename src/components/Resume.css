@@ -67,7 +67,7 @@
 }
 
 .resume__card-item--lead {
-  border-left-color: var(--color-warning);
+  border-left-color: var(--color-primary-400);
 }
 
 .resume__card-item:hover {
@@ -81,7 +81,7 @@
 }
 
 .resume__card-item--lead:hover {
-  border-color: var(--color-warning);
+  border-color: var(--color-primary-400);
 }
 
 /* Badges */
@@ -105,8 +105,8 @@
 }
 
 .resume__card-badge--lead {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: var(--color-warning);
+  background-color: rgba(96, 165, 250, 0.1);
+  color: var(--color-primary-400);
 }
 
 .resume__card-period {
@@ -163,7 +163,7 @@
 }
 
 .resume__card-item--lead .resume__card-bullet::before {
-  color: var(--color-warning);
+  color: var(--color-primary-400);
 }
 
 .resume__card-awards {
