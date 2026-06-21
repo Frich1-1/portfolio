@@ -101,7 +101,7 @@ body {
   font-size: var(--font-size-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image: url('/bg-smoke.jpg');
+  background-image: url('/bg-website.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
