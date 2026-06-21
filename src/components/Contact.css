@@ -172,9 +172,9 @@ a.contact__card:hover .contact__card-icon {
 }
 
 .contact__status--success {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(59, 130, 246, 0.1);
   color: var(--color-success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .contact__status--error {

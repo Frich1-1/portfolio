@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Github, Linkedin } from './BrandIcons';
 import './Contact.css';
 
@@ -12,6 +13,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [captchaValue, setCaptchaValue] = useState(null);
 
   // Replace with your Formspree form ID once created
   const FORMSPREE_FORM_ID = 'mzdqondp'; 
@@ -41,6 +43,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormState({ name: '', email: '', subject: '', message: '' });
+        setCaptchaValue(null);
       } else {
         setSubmitStatus('error');
       }
@@ -172,10 +175,18 @@ export default function Contact() {
                 />
               </div>
 
+              <div className="contact__form-group">
+                <ReCAPTCHA
+                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                  onChange={(val) => setCaptchaValue(val)}
+                  theme="light"
+                />
+              </div>
+
               <button 
                 type="submit" 
                 className="contact__submit-btn"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !captchaValue}
               >
                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
                 <Send size={16} />
