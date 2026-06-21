@@ -20,11 +20,11 @@
 
   --color-bg: transparent;             /* Transparent to show body image */
   --color-bg-alt: transparent;     /* Transparent for image bg */
-  --color-bg-card: rgba(255, 255, 255, 0.03);
-  --color-bg-glass: rgba(255, 255, 255, 0.05);
+  --color-bg-card: rgba(0, 0, 0, 0.4); /* Darker glass to make text pop */
+  --color-bg-glass: rgba(0, 0, 0, 0.5);
 
-  --color-text: #F9FAFB;           /* Near White */
-  --color-text-secondary: #D1D5DB; /* Light Grey */
+  --color-text: #FFFFFF;           /* Pure White */
+  --color-text-secondary: #E5E7EB; /* Lighter Grey for better contrast */
   --color-text-tertiary: #9CA3AF;
   --color-text-inverse: #000000;
 
@@ -101,7 +101,7 @@ body {
   font-size: var(--font-size-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image: url('/bg-website.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/bg-website.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
