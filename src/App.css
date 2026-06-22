@@ -44,3 +44,41 @@
   background: var(--color-bg-alt);
 }
 
+/* Floating CTF Button */
+.ctf-trigger-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(30, 58, 138, 0.8); /* Dark Blue */
+  color: #60A5FA; /* Light Blue */
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  animation: float 4s ease-in-out infinite, pulse-glow 3s infinite alternate;
+}
+
+.ctf-trigger-btn span {
+  font-weight: bold;
+  color: #27c93f; /* Terminal green */
+}
+
+.ctf-trigger-btn:hover {
+  background: rgba(30, 58, 138, 1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(96, 165, 250, 0.4);
+}
+
+@keyframes pulse-glow {
+  from { box-shadow: 0 0 10px rgba(96, 165, 250, 0.2); }
+  to { box-shadow: 0 0 20px rgba(96, 165, 250, 0.6); }
+}
+

@@ -1,0 +1,121 @@
+.terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.terminal-window {
+  width: 800px;
+  max-width: 90vw;
+  height: 500px;
+  max-height: 80vh;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.terminal-header {
+  height: 30px;
+  background: #2d2d2d;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #111;
+  position: relative;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.term-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.term-btn.close { background: #ff5f56; }
+.term-btn.minimize { background: #ffbd2e; }
+.term-btn.maximize { background: #27c93f; }
+
+.terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #888;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #d4d4d4;
+  background: #1e1e1e;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.terminal-line.system { color: #60A5FA; }
+.terminal-line.user { color: #d4d4d4; }
+.terminal-line.success { color: #27c93f; font-weight: bold; }
+.terminal-line.badge { color: #ffbd2e; font-weight: bold; font-size: 16px; margin: 10px 0; }
+.terminal-line.error { color: #ff5f56; }
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.prompt {
+  color: #27c93f;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #d4d4d4;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  outline: none;
+}
+
+.terminal-badge-display {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px dashed #ffbd2e;
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255, 189, 46, 0.1);
+  animation: pulse 2s infinite;
+}
+
+.terminal-badge-display h2 {
+  color: #ffbd2e;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+}

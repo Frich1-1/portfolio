@@ -48,13 +48,20 @@
 }
 
 .footer__logo-bold {
-  font-weight: 800;
-  color: var(--color-primary-400);
+  font-family: 'Silkscreen', monospace;
+  font-weight: 400;
+  color: #8BA4F9;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
 }
 
 .footer__logo-light {
-  font-weight: 500;
-  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #1E3A8A;
+  font-size: 1.8rem;
+  margin-left: 5px;
 }
 
 .footer__tagline {
@@ -68,7 +75,7 @@
 .footer__title {
   font-size: var(--font-size-base);
   font-weight: 700;
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   margin-bottom: var(--space-6);
   position: relative;
 }

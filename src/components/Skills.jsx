@@ -86,14 +86,6 @@ export default function Skills() {
               ))}
             </div>
 
-            <h3 className="skills__sub-title skills__sub-title--tools">
-              <Wrench size={20} className="skills__icon-inline" /> Tools & Platforms
-            </h3>
-            <div className="skills__tags">
-              {tools.map((tool) => (
-                <span key={tool} className="skills__tag">{tool}</span>
-              ))}
-            </div>
           </div>
 
           {/* Soft/Management Skills Column */}
@@ -112,6 +104,18 @@ export default function Skills() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Full Width Tools Section */}
+        <div className="skills__tools-section">
+          <h3 className="skills__sub-title skills__sub-title--tools">
+            <Wrench size={20} className="skills__icon-inline" /> Tools & Platforms
+          </h3>
+          <div className="skills__tags">
+            {tools.map((tool) => (
+              <span key={tool} className="skills__tag">{tool}</span>
+            ))}
           </div>
         </div>
       </div>

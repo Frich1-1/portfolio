@@ -41,13 +41,20 @@
 }
 
 .navbar__logo-bold {
-  font-weight: 800;
-  color: var(--color-primary);
+  font-family: 'Silkscreen', monospace;
+  font-weight: 400;
+  color: #8BA4F9; /* Light Blue pixel text */
+  font-size: 1.2rem;
+  letter-spacing: 2px;
 }
 
 .navbar__logo-light {
-  font-weight: 500;
-  color: var(--color-text);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #1E3A8A; /* Dark Blue cursive text */
+  font-size: 1.8rem;
+  margin-left: 5px;
 }
 
 .navbar__links {

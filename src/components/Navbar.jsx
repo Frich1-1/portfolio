@@ -50,8 +50,8 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`} id="main-nav">
       <div className="navbar__container">
         <a href="#home" className="navbar__logo" onClick={(e) => handleNavClick(e, '#home')}>
-          <span className="navbar__logo-bold">Richie</span>
-          <span className="navbar__logo-light">Frederico</span>
+          <span className="navbar__logo-bold">RICHIE</span>
+          <span className="navbar__logo-light">frederico</span>
         </a>
 
         <div className={`navbar__links ${isMobileOpen ? 'navbar__links--open' : ''}`}>

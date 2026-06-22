@@ -30,8 +30,8 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__info">
             <a href="#home" className="footer__logo" onClick={handleLogoClick}>
-              <span className="footer__logo-bold">Richie</span>
-              <span className="footer__logo-light">Frederico</span>
+              <span className="footer__logo-bold">RICHIE</span>
+              <span className="footer__logo-light">frederico</span>
             </a>
             <p className="footer__tagline">
               Connecting code and coordination. Informatics student focused on Web Development & Project Management.
