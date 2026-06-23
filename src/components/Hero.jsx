@@ -38,7 +38,7 @@ export default function Hero() {
           <p className="hero__location">President University, Indonesia</p>
           
           <div className="hero__tags">
-            <p>👨🏻‍💻 Informatics Student + Project Manager + Tech Enthusiast</p>
+            <p>👨🏻‍💻 Informatics Student + Tech Enthusiast</p>
             <p>Leader + Problem Solver + Digital Innovator</p>
             <p>+ Software Engineer ⚡🚀</p>
           </div>
