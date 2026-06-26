@@ -41,8 +41,8 @@ const FS = {
   '~/flag.txt': {
     type: 'file',
     content: [
-      '╔══════════════════════════════════════╗',
-      '║  FLAG{r1ch1e_15_4_l3g1t_h4ck3r}     ║',
+      '╔══════════════════════════════════════════╗',
+      '║  FLAG{Y0u_ar3_4_l3g1t_h4ck3r}          ║',
       '╚══════════════════════════════════════╝',
       '',
       'You have full root access. Respect.',
@@ -56,7 +56,7 @@ const ENCODED_SECRET = 'cGFzc3dvcmQ6IHIxY2gxZV9yMDB0'; // password: r1ch1e_r00t
 const CORRECT_PASSWORD = 'r1ch1e_r00t';
 
 // ── Canvas Certificate Generator ────────────────────────────────────────────
-function generateCertificate() {
+function generateCertificate(recipientName = 'Anonymous Hacker') {
   const canvas = document.createElement('canvas');
   canvas.width = 900;
   canvas.height = 600;
@@ -123,7 +123,7 @@ function generateCertificate() {
   // Recipient name
   ctx.fillStyle = '#facc15';
   ctx.font = 'italic bold 48px Georgia, serif';
-  ctx.fillText('Richie Frederico Wong', 450, 275);
+  ctx.fillText(recipientName, 450, 275);
 
   // Achievement text
   ctx.fillStyle = '#d1d5db';
@@ -142,7 +142,7 @@ function generateCertificate() {
   ctx.strokeRect(250, 375, 400, 50);
   ctx.fillStyle = '#4ade80';
   ctx.font = 'bold 18px monospace';
-  ctx.fillText('FLAG{r1ch1e_15_4_l3g1t_h4ck3r}', 450, 406);
+  ctx.fillText('FLAG{Y0u_ar3_4_l3g1t_h4ck3r}', 450, 406);
 
   // Date & issuer
   ctx.fillStyle = '#9ca3af';
@@ -176,6 +176,7 @@ function generateCertificate() {
 export default function TerminalOverlay({ isOpen, onClose }) {
   const [input, setInput] = useState('');
   const [isRoot, setIsRoot] = useState(false);
+  const [awaitingName, setAwaitingName] = useState(false);
   const [cwd, setCwd] = useState('~');
   const [history, setHistory] = useState([]);
   const [histIdx, setHistIdx] = useState(-1);
@@ -228,6 +229,31 @@ export default function TerminalOverlay({ isOpen, onClose }) {
     if (e.key !== 'Enter') return;
 
     const raw = input.trim();
+
+    // ── Name prompt mode ────────────────────────────────────────────────────
+    if (awaitingName) {
+      const name = raw || 'Anonymous Hacker';
+      setAwaitingName(false);
+      const namePrompt = { type: 'user', text: `Enter your name: ${name}` };
+      let nameLines = [...output, namePrompt,
+        { type: 'system', text: '' },
+        { type: 'system', text: `Generating certificate for: ${name}...` },
+        { type: 'success', text: '✓ Certificate rendered.' },
+        { type: 'success', text: '⬇  Downloading your_hacker_cert.png...' },
+        { type: 'system', text: '' },
+      ];
+      setOutput(nameLines);
+      setInput('');
+      setTimeout(() => {
+        const canvas = generateCertificate(name);
+        const link = document.createElement('a');
+        link.download = `${name.replace(/\s+/g, '_')}_hacker_cert.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }, 100);
+      return;
+    }
+
     const cmd = raw.toLowerCase();
     const parts = raw.split(' ');
     const verb = parts[0].toLowerCase();
@@ -381,18 +407,17 @@ export default function TerminalOverlay({ isOpen, onClose }) {
             break;
           }
           newLines.push(...push(
-            ['system', 'Generating certificate...'],
-            ['success', '✓ Certificate rendered.'],
-            ['success', 'Downloading richie_cert.png...'],
+            ['system', ''],
+            ['system', '┌─ Certificate Generator ───────────────────────┐'],
+            ['system', '│  Your name will be printed on the certificate. │'],
+            ['system', '└────────────────────────────────────────────────┘'],
+            ['hint',   'Enter your name and press Enter:'],
+            ['system', ''],
           ));
-          // defer so DOM updates first
-          setTimeout(() => {
-            const canvas = generateCertificate();
-            const link = document.createElement('a');
-            link.download = 'richie_hacker_cert.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-          }, 100);
+          setOutput(newLines);
+          setInput('');
+          setAwaitingName(true);
+          return;
         } else if (target === 'ctf_logo' || target === 'ctf_logo.png') {
           newLines.push({ type: 'error', text: 'File not available for download. Try  richie_cert  instead (as root).' });
         } else {
@@ -451,7 +476,9 @@ export default function TerminalOverlay({ isOpen, onClose }) {
           ))}
 
           <div className="terminal-input-line">
-            <span className={`prompt ${isRoot ? 'prompt--root' : ''}`}>{promptStr}</span>
+            <span className={`prompt ${isRoot ? 'prompt--root' : ''} ${awaitingName ? 'prompt--name' : ''}`}>
+              {awaitingName ? 'Enter your name:' : promptStr}
+            </span>
             <input
               ref={inputRef}
               type="text"
@@ -462,6 +489,7 @@ export default function TerminalOverlay({ isOpen, onClose }) {
               className="terminal-input"
               autoComplete="off"
               spellCheck="false"
+              placeholder={awaitingName ? 'e.g. John Doe' : ''}
             />
           </div>
           <div ref={endRef} />

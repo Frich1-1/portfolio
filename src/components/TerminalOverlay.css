@@ -150,6 +150,10 @@
   color: #f87171;
 }
 
+.prompt--name {
+  color: #facc15;
+}
+
 .terminal-input {
   flex: 1;
   background: transparent;
