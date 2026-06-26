@@ -6,7 +6,7 @@ const education = [
     title: 'Candidate for B.Informatics in Computer Science',
     institution: 'President University',
     period: '2024 - Present',
-    gpa: 'GPA: 3.78/4.00',
+    gpa: 'GPA: 3.76/4.00',
     achievements: [
       '2x 1st Place Team CTF President University 2025-2026',
       '4x National Debate Finalist/Champion 2025'

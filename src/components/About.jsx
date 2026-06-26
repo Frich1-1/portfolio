@@ -48,7 +48,7 @@ export default function About() {
               </div>
               <div className="about__card-content">
                 <h4 className="about__card-title">Academic Excellence</h4>
-                <p className="about__card-desc">B.Informatics with 3.78/4.00 GPA at President University</p>
+                <p className="about__card-desc">B.Informatics with 3.76/4.00 GPA at President University</p>
               </div>
             </div>
 
