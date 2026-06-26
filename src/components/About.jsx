@@ -36,7 +36,7 @@ export default function About() {
               </div>
               <div className="about__detail-item">
                 <span className="about__detail-label">Current GPA:</span>
-                <span className="about__detail-value">3.78 / 4.00</span>
+                <span className="about__detail-value">3.76 / 4.00</span>
               </div>
             </div>
           </div>
