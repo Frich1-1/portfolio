@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import Navbar from './components/Navbar';
@@ -13,14 +13,24 @@ import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import ParticleBackground from './components/ParticleBackground';
 import TerminalOverlay from './components/TerminalOverlay';
+import IntroScreen from './components/IntroScreen';
 
 function App() {
   useScrollReveal();
   
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [introComplete, setIntroComplete] = useState(false);
+  const [bodyVisible, setBodyVisible] = useState(false);
+
+  const handleIntroComplete = useCallback(() => {
+    setIntroComplete(true);
+    setTimeout(() => setBodyVisible(true), 50);
+  }, []);
 
   return (
-    <div className="app">
+    <>
+      {!introComplete && <IntroScreen onComplete={handleIntroComplete} />}
+    <div className="app" style={{ opacity: bodyVisible ? 1 : 0, transition: 'opacity 0.6s ease' }}>
       <CustomCursor />
       <ParticleBackground />
       <TerminalOverlay isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
@@ -31,7 +41,7 @@ function App() {
         onClick={() => setIsTerminalOpen(true)}
         title="Open Terminal CTF"
       >
-        <span>&gt;_</span> hey press me
+        <span>&gt;<span className="blink-cursor">_</span></span> hey press me
       </button>
 
       <Navbar />
@@ -45,6 +55,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
 

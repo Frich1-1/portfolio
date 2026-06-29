@@ -27,8 +27,11 @@ export default function Hero() {
 
         {/* Center Column */}
         <div className="hero__col hero__col--center">
-          <div className="hero__image-circle">
-            <img src="/richie-photo.png" alt="Richie Frederico Wong" />
+          <div className="hero__image-container">
+            <div className="hero__image-glow"></div>
+            <div className="hero__image-circle">
+              <img src="/richie-photo.png" alt="Richie Frederico Wong" />
+            </div>
           </div>
         </div>
 

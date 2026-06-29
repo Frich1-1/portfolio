@@ -63,12 +63,17 @@
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  animation: float 4s ease-in-out infinite, pulse-glow 3s infinite alternate;
+  animation: ctfBeacon 5s ease-in-out infinite;
 }
 
 .ctf-trigger-btn span {
   font-weight: bold;
   color: #27c93f; /* Terminal green */
+}
+
+/* Make the terminal cursor character blink */
+.blink-cursor {
+  animation: terminalBlink 1s step-end infinite;
 }
 
 .ctf-trigger-btn:hover {
@@ -77,8 +82,27 @@
   box-shadow: 0 8px 20px rgba(96, 165, 250, 0.4);
 }
 
-@keyframes pulse-glow {
-  from { box-shadow: 0 0 10px rgba(96, 165, 250, 0.2); }
-  to { box-shadow: 0 0 20px rgba(96, 165, 250, 0.6); }
+@keyframes ctfBeacon {
+  0% {
+    transform: translateX(0) translateY(0);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 8px rgba(96, 165, 250, 0.2);
+  }
+  33% {
+    transform: translateX(-5px) translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4), 0 0 16px rgba(96, 165, 250, 0.4);
+  }
+  66% {
+    transform: translateX(5px) translateY(1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 10px rgba(96, 165, 250, 0.3);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 8px rgba(96, 165, 250, 0.2);
+  }
+}
+
+@keyframes terminalBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 

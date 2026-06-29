@@ -1,0 +1,379 @@
+/* ==================== INTRO SCREEN ==================== */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0a0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.76, 0, 0.24, 1),
+              transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Exit phase */
+.intro.exit {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ── Grid background ── */
+.intro__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: introGridFade 0.8s ease forwards;
+  opacity: 0;
+}
+
+.intro.reveal .intro__grid {
+  opacity: 1;
+  animation: introGridFade 1s ease forwards;
+}
+
+/* ── Scanning line ── */
+.intro__scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3B82F6, #60A5FA, transparent);
+  animation: introScan 2.8s ease-in-out infinite;
+  opacity: 0;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.intro.reveal .intro__scan-line { opacity: 1; }
+
+@keyframes introScan {
+  0%   { top: 0; opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Corner accents ── */
+.intro__corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+
+.intro.reveal .intro__corner { opacity: 1; }
+
+.intro__corner--tl { top: 24px;  left: 24px;  border-top: 2px solid #3B82F6; border-left: 2px solid #3B82F6; }
+.intro__corner--tr { top: 24px;  right: 24px; border-top: 2px solid #3B82F6; border-right: 2px solid #3B82F6; }
+.intro__corner--bl { bottom: 24px; left: 24px;  border-bottom: 2px solid #3B82F6; border-left: 2px solid #3B82F6; }
+.intro__corner--br { bottom: 24px; right: 24px; border-bottom: 2px solid #3B82F6; border-right: 2px solid #3B82F6; }
+
+/* ── Center content ── */
+.intro__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* ── Logo / Monogram ── */
+.intro__logo-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+}
+
+.intro.reveal .intro__logo-wrap {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.intro__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: introRingSpin 12s linear infinite;
+}
+
+@keyframes introRingSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.intro__monogram {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #fff 0%, #93C5FD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Orbiting dot */
+.intro__orbit {
+  position: absolute;
+  inset: 0;
+  animation: introOrbitSpin 3s linear infinite;
+}
+
+@keyframes introOrbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.intro__orbit-dot {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3B82F6;
+  box-shadow: 0 0 12px #3B82F6, 0 0 24px rgba(59,130,246,0.5);
+}
+
+/* ── Location tag ── */
+.intro__location {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+}
+
+.intro.reveal .intro__location {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro__dot-pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3B82F6;
+  animation: introDotPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes introDotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.6); }
+  50%       { box-shadow: 0 0 0 6px rgba(59,130,246,0); }
+}
+
+/* ── Main name ── */
+.intro__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Name line shared base ── */
+.intro__name-line {
+  display: block;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.intro__name-line--accent {
+  background: linear-gradient(90deg, #3B82F6, #60A5FA, #93C5FD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  font-size: clamp(2.2rem, 7.5vw, 4.5rem);
+}
+
+/* ── Line 1: "Richie" — slams in from LEFT with hard skew ── */
+.intro__name-line:nth-child(1) {
+  transform: translateX(-120px) skewX(-12deg);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.intro.reveal .intro__name-line:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0) skewX(0);
+  transition-delay: 0.55s;
+}
+
+/* ── Line 2: "Frederico" — letter-spacing collapses inward, like it assembles ── */
+.intro__name-line:nth-child(2) {
+  letter-spacing: 0.55em;
+  transform: scale(0.82);
+  filter: blur(6px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    letter-spacing 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s ease;
+}
+.intro.reveal .intro__name-line:nth-child(2) {
+  opacity: 1;
+  letter-spacing: -0.02em;
+  transform: scale(1);
+  filter: blur(0);
+  transition-delay: 0.9s;
+}
+
+/* ── Line 3: "Wong" — blasts in from RIGHT, mirror of line 1 ── */
+.intro__name-line:nth-child(3) {
+  transform: translateX(120px) skewX(12deg);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.intro.reveal .intro__name-line:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0) skewX(0);
+  transition-delay: 1.3s;
+}
+
+/* ── Roles ── */
+.intro__roles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 1.4s, transform 0.5s ease 1.4s;
+}
+
+.intro.reveal .intro__roles {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro__role {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 4px 12px;
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 999px;
+  background: rgba(37,99,235,0.08);
+  backdrop-filter: blur(8px);
+}
+
+.intro__role-sep {
+  color: rgba(37,99,235,0.4);
+  font-size: 1rem;
+}
+
+/* ── Progress loader ── */
+.intro__loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease 1.7s;
+  margin-top: 12px;
+}
+
+.intro.reveal .intro__loader { opacity: 1; }
+
+.intro__loader-track {
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.intro__loader-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #1D4ED8, #3B82F6, #60A5FA);
+  border-radius: 2px;
+  animation: introLoad 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1.8s forwards;
+  box-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
+
+@keyframes introLoad {
+  to { width: 100%; }
+}
+
+.intro__loader-text {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: 'Silkscreen', monospace;
+}
+
+/* ── Bottom bar ── */
+.intro__bottom-bar {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-family: 'Silkscreen', monospace;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.8s;
+}
+
+.intro.reveal .intro__bottom-bar { opacity: 1; }
+
+/* ── Grid fade keyframe ── */
+@keyframes introGridFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .intro__logo-wrap { width: 100px; height: 100px; }
+  .intro__monogram  { font-size: 1.8rem; }
+  .intro__loader-track { width: 140px; }
+  .intro__roles { gap: 6px; }
+  .intro__role-sep { display: none; }
+}
