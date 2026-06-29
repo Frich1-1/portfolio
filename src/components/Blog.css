@@ -1,6 +1,6 @@
 .blog {
   position: relative;
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-bg);
 }
 
 .blog__header {

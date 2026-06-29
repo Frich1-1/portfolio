@@ -25,7 +25,7 @@
 }
 
 #skills {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 #portfolio {
@@ -33,7 +33,7 @@
 }
 
 #blog {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 #resume {
@@ -41,7 +41,7 @@
 }
 
 #contact {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 /* Floating CTF Button */
