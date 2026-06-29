@@ -21,6 +21,43 @@ function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [introComplete, setIntroComplete] = useState(false);
   const [bodyVisible, setBodyVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const SECTIONS = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'Projects' },
+    { id: 'resume', label: 'Resume' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  useEffect(() => {
+    if (!bodyVisible) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    SECTIONS.forEach((sec) => {
+      const el = document.getElementById(sec.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [bodyVisible]);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
@@ -34,6 +71,26 @@ function App() {
       <CustomCursor />
       <ParticleBackground />
       <TerminalOverlay isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+      
+      {/* Scroll Spy Vertical Navigation Tracker */}
+      {bodyVisible && (
+        <div className="scroll-spy-nav" aria-label="Vertical navigation tracker">
+          {SECTIONS.map((sec) => (
+            <a
+              key={sec.id}
+              href={`#${sec.id}`}
+              className={`scroll-spy-nav__dot ${activeSection === sec.id ? 'scroll-spy-nav__dot--active' : ''}`}
+              aria-label={`Scroll to ${sec.label}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(sec.id)?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <span className="scroll-spy-nav__tooltip">{sec.label}</span>
+            </a>
+          ))}
+        </div>
+      )}
       
       {/* Floating CTF Button */}
       <button 

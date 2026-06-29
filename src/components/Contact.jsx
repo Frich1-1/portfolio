@@ -56,27 +56,22 @@ export default function Contact() {
 
   return (
     <section className="contact section" id="contact">
-      <div className="contact__container animate-in">
-        <div className="contact__header">
+      <div className="contact__container split-showcase animate-in">
+        
+        {/* Left Side Content */}
+        <div className="split-showcase__left">
           <span className="section-label">Contact</span>
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
-            Have a project in mind, a job opportunity, or just want to connect? Drop me a message below!
+          <h2 className="split-showcase__title">Get In<br />Touch</h2>
+          
+          <p className="split-showcase__desc">
+            Have a project in mind, a job opportunity, or just want to connect? Drop me a message or find me on socials!
           </p>
-        </div>
 
-        <div className="contact__grid">
-          {/* Contact Details */}
-          <div className="contact__info">
-            <h3 className="contact__subtitle">Connect With Me</h3>
-            <p className="contact__desc">
-              Feel free to send a message via the form, or reach out directly on email and LinkedIn.
-            </p>
-
+          <div className="contact__socials-box">
             <div className="contact__cards">
               <a href="mailto:richiewong110107@gmail.com" className="contact__card">
                 <div className="contact__card-icon">
-                  <Mail size={20} />
+                  <Mail size={18} />
                 </div>
                 <div className="contact__card-details">
                   <span className="contact__card-label">Email</span>
@@ -86,125 +81,120 @@ export default function Contact() {
 
               <a href="https://www.linkedin.com/in/richiewong1101" target="_blank" rel="noopener noreferrer" className="contact__card">
                 <div className="contact__card-icon">
-                  <Linkedin size={20} />
+                  <Linkedin size={18} />
                 </div>
                 <div className="contact__card-details">
                   <span className="contact__card-label">LinkedIn</span>
                   <span className="contact__card-value">linkedin.com/in/richiewong1101</span>
                 </div>
               </a>
-
-              <a href="https://github.com/Frich1-1" target="_blank" rel="noopener noreferrer" className="contact__card">
-                <div className="contact__card-icon">
-                  <Github size={20} />
-                </div>
-                <div className="contact__card-details">
-                  <span className="contact__card-label">GitHub</span>
-                  <span className="contact__card-value">github.com/Frich1-1</span>
-                </div>
-              </a>
-
-              <div className="contact__card">
-                <div className="contact__card-icon">
-                  <MapPin size={20} />
-                </div>
-                <div className="contact__card-details">
-                  <span className="contact__card-label">Location</span>
-                  <span className="contact__card-value">Indonesia</span>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Form */}
-          <div className="contact__form-wrapper">
-            <form onSubmit={handleSubmit} className="contact__form">
-              <div className="contact__form-group">
-                <label htmlFor="name" className="contact__form-label">Full Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  id="name"
-                  value={formState.name}
-                  onChange={handleChange}
-                  placeholder="John Doe" 
-                  className="contact__form-input" 
-                  required 
-                />
-              </div>
-
-              <div className="contact__form-group">
-                <label htmlFor="email" className="contact__form-label">Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com" 
-                  className="contact__form-input" 
-                  required 
-                />
-              </div>
-
-              <div className="contact__form-group">
-                <label htmlFor="subject" className="contact__form-label">Subject</label>
-                <input 
-                  type="text" 
-                  name="subject" 
-                  id="subject"
-                  value={formState.subject}
-                  onChange={handleChange}
-                  placeholder="Project Inquiry" 
-                  className="contact__form-input" 
-                  required 
-                />
-              </div>
-
-              <div className="contact__form-group">
-                <label htmlFor="message" className="contact__form-label">Your Message</label>
-                <textarea 
-                  name="message" 
-                  id="message"
-                  value={formState.message}
-                  onChange={handleChange}
-                  rows="5" 
-                  placeholder="Describe your project, ideas, or message here..." 
-                  className="contact__form-input contact__form-input--textarea" 
-                  required
-                />
-              </div>
-
-              <div className="contact__form-group">
-                <ReCAPTCHA
-                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                  onChange={(val) => setCaptchaValue(val)}
-                  theme="light"
-                />
-              </div>
-
-              <button 
-                type="submit" 
-                className="contact__submit-btn"
-                disabled={isSubmitting || !captchaValue}
-              >
-                {isSubmitting ? 'Sending Message...' : 'Send Message'}
-                <Send size={16} />
-              </button>
-
-              {submitStatus === 'success' && (
-                <div className="contact__status contact__status--success">
-                  Thank you! Your message has been sent successfully.
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="contact__status contact__status--error">
-                  Oops! Something went wrong. You can also contact me directly at the email listed.
-                </div>
-              )}
-            </form>
+          <div className="split-showcase__thumbnail" style={{ marginTop: '24px' }}>
+            <div className="contact__mini-thumb">
+              <span className="contact__mini-prompt">&gt;_ mail_send</span>
+              <span className="contact__mini-sub">Active Inbox</span>
+            </div>
           </div>
         </div>
+
+        {/* Right Side Content: Skewed Form Wrapper */}
+        <div className="split-showcase__right">
+          <div className="split-showcase__skewed-wrapper">
+            <div className="split-showcase__skewed-backdrop split-showcase__skewed-backdrop--top"></div>
+            <div className="split-showcase__skewed-backdrop split-showcase__skewed-backdrop--bottom"></div>
+            
+            <div className="contact__form-wrapper">
+              <form onSubmit={handleSubmit} className="contact__form">
+                <div className="contact__form-group">
+                  <label htmlFor="name" className="contact__form-label">Full Name</label>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    id="name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    placeholder="John Doe" 
+                    className="contact__form-input" 
+                    required 
+                  />
+                </div>
+
+                <div className="contact__form-group">
+                  <label htmlFor="email" className="contact__form-label">Email Address</label>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com" 
+                    className="contact__form-input" 
+                    required 
+                  />
+                </div>
+
+                <div className="contact__form-group">
+                  <label htmlFor="subject" className="contact__form-label">Subject</label>
+                  <input 
+                    type="text" 
+                    name="subject" 
+                    id="subject"
+                    value={formState.subject}
+                    onChange={handleChange}
+                    placeholder="Project Inquiry" 
+                    className="contact__form-input" 
+                    required 
+                  />
+                </div>
+
+                <div className="contact__form-group">
+                  <label htmlFor="message" className="contact__form-label">Your Message</label>
+                  <textarea 
+                    name="message" 
+                    id="message"
+                    value={formState.message}
+                    onChange={handleChange}
+                    rows="4" 
+                    placeholder="Describe your project, ideas, or message here..." 
+                    className="contact__form-input contact__form-input--textarea" 
+                    required
+                  />
+                </div>
+
+                <div className="contact__form-group">
+                  <ReCAPTCHA
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    onChange={(val) => setCaptchaValue(val)}
+                    theme="dark"
+                  />
+                </div>
+
+                <button 
+                  type="submit" 
+                  className="contact__submit-btn"
+                  disabled={isSubmitting || !captchaValue}
+                >
+                  {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                  <Send size={15} />
+                </button>
+
+                {submitStatus === 'success' && (
+                  <div className="contact__status contact__status--success">
+                    Thank you! Your message has been sent successfully.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="contact__status contact__status--error">
+                    Oops! Something went wrong. You can also contact me directly.
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
