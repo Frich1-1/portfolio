@@ -230,3 +230,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Swap left and right columns on desktop */
+@media (min-width: 993px) {
+  .skills__container.split-showcase {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .skills__container .split-showcase__left {
+    order: 2;
+  }
+  .skills__container .split-showcase__right {
+    order: 1;
+  }
+}
+

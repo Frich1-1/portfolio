@@ -174,3 +174,17 @@
     gap: var(--space-12);
   }
 }
+
+/* Swap left and right columns on desktop */
+@media (min-width: 993px) {
+  .resume__container.split-showcase {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .resume__container .split-showcase__left {
+    order: 2;
+  }
+  .resume__container .split-showcase__right {
+    order: 1;
+  }
+}
+

@@ -6,21 +6,18 @@
   justify-content: center;
   padding: var(--space-12) var(--space-6);
   overflow: hidden;
-  background-color: var(--color-bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'Inter', var(--font-family); /* Inter or similar sans-serif for modern look */
 }
 
 /* The dark blue slanted shape in the background */
 .hero__bg-shape {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 45%;
-  background-color: #1E3A8A; /* Dark Blue Accent */
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-  z-index: 0;
+  display: none;
 }
+
 
 .hero__container {
   max-width: 1400px;
