@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
+import Blog from './components/Blog';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function App() {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'portfolio', label: 'Projects' },
+    { id: 'blog', label: 'Blog' },
     { id: 'resume', label: 'Resume' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -107,6 +109,7 @@ function App() {
         <About />
         <Skills />
         <Portfolio />
+        <Blog />
         <Resume />
         <Contact />
       </main>
