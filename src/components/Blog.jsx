@@ -36,7 +36,7 @@ const journey = [
     year: '2026',
     tag: 'Peak Performance',
     icon: Trophy,
-    color: '#f59e0b',
+    color: 'var(--color-primary)',
     title: 'Champion & Overall Best Speaker at EUFORIA 2026',
     excerpt:
       'EUFORIA 2026 was where everything clicked. My team took home the Champion title, and I was awarded Overall Best Speaker — a recognition that every debater dreams of. On top of that, I placed 5th Novice Best Speaker at the UGM-GME Debating Competition, showing consistency at the highest level. These achievements aren\'t just trophies on a shelf — they represent years of deliberate practice, intellectual growth, and an unshakeable belief that I belonged on that stage.',
