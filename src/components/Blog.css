@@ -15,6 +15,7 @@
 /* ── Personal Quote ──────────────────────────────────────── */
 .blog__quote {
   position: relative;
+  width: 100%;
   max-width: 760px;
   margin: 0 auto var(--space-14);
   padding: var(--space-8) var(--space-10);
@@ -23,15 +24,14 @@
   border-top: 4px solid var(--color-primary);
   border-radius: var(--radius-lg);
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-sizing: border-box;
 }
 
 .blog__quote-icon {
+  display: block;
+  margin: 0 auto var(--space-4);
   color: var(--color-primary);
   opacity: 0.6;
-  margin-bottom: var(--space-4);
 }
 
 .blog__quote-text {
