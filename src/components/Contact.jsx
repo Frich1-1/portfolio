@@ -90,13 +90,6 @@ export default function Contact() {
               </a>
             </div>
           </div>
-
-          <div className="split-showcase__thumbnail" style={{ marginTop: '24px' }}>
-            <div className="contact__mini-thumb">
-              <span className="contact__mini-prompt">&gt;_ mail_send</span>
-              <span className="contact__mini-sub">Active Inbox</span>
-            </div>
-          </div>
         </div>
 
         {/* Right Side Content: Skewed Form Wrapper */}

@@ -63,13 +63,6 @@ export default function Skills() {
               ))}
             </div>
           </div>
-
-          <div className="split-showcase__thumbnail" style={{ marginTop: '24px' }}>
-            <div className="skills__mini-thumb">
-              <span className="skills__mini-val">PostgreSQL</span>
-              <span className="skills__mini-sub">Laravel & Git</span>
-            </div>
-          </div>
         </div>
 
         {/* Right Side: Skewed Glass Panel holding technical & soft skills */}

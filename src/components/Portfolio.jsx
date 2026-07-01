@@ -40,13 +40,6 @@ export default function Portfolio() {
           <a href="#contact" className="split-showcase__link">
             Get in touch for details &rarr;
           </a>
-
-          <div className="split-showcase__thumbnail">
-            <div className="portfolio__mini-thumb">
-              <span className="portfolio__mini-title">&gt;_ wmp_app</span>
-              <span className="portfolio__mini-lbl">Kotlin/Android</span>
-            </div>
-          </div>
         </div>
 
         {/* Right Side Content: Skewed Cards Stack */}

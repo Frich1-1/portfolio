@@ -87,13 +87,6 @@ export default function Resume() {
               </div>
             ))}
           </div>
-
-          <div className="split-showcase__thumbnail" style={{ marginTop: '24px' }}>
-            <div className="resume__mini-thumb">
-              <span className="resume__mini-gpa">CS Major</span>
-              <span className="resume__mini-badge">Leader</span>
-            </div>
-          </div>
         </div>
 
         {/* Right Side: Skewed Glass Panel Timeline of work experience */}
