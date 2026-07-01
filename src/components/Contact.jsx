@@ -37,7 +37,10 @@ export default function Contact() {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(formState)
+        body: JSON.stringify({
+          ...formState,
+          'g-recaptcha-response': captchaValue
+        })
       });
 
       if (response.ok) {
@@ -158,7 +161,7 @@ export default function Contact() {
 
                 <div className="contact__form-group">
                   <ReCAPTCHA
-                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
                     onChange={(val) => setCaptchaValue(val)}
                     theme="dark"
                   />
