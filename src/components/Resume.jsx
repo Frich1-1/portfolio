@@ -100,7 +100,7 @@ export default function Resume() {
                 <Briefcase size={18} className="resume__icon-inline" /> Work Experience
               </h3>
               
-              <div className="resume__timeline-list">
+              <div className="resume__timeline-list resume__timeline-list--grid">
                 {workExperience.map((work, idx) => (
                   <div key={idx} className="resume__timeline-card">
                     <span className="resume__card-period">{work.period}</span>

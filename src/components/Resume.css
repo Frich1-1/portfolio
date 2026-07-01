@@ -106,11 +106,23 @@
   margin-top: var(--space-4);
 }
 
+.resume__timeline-list--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .resume__timeline-list--grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .resume__timeline-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-xl);
-  padding: var(--space-5);
+  padding: var(--space-4) var(--space-5);
   transition: all var(--transition-base);
   border-left: 3px solid var(--color-primary-400);
 }
@@ -139,7 +151,7 @@
   font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--color-primary-400);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -147,13 +159,13 @@
 .resume__card-bullet-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .resume__card-bullet {
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: 1.4;
   position: relative;
   padding-left: var(--space-4);
 }
