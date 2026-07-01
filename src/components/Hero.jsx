@@ -45,10 +45,6 @@ export default function Hero() {
             <p>Leader + Problem Solver + Digital Innovator</p>
           </div>
 
-          <p className="hero__skills-text">
-            project management, agile, scrum, software engineering, web development, leadership, problem solving
-          </p>
-
           <div className="hero__socials">
             <a href="https://github.com/Frich1-1" target="_blank" rel="noopener noreferrer" className="hero__social-link" aria-label="GitHub">
               <Github size={20} />
