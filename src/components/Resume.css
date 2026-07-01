@@ -128,7 +128,7 @@
 }
 
 .resume__timeline-card--full {
-  grid-column: 1 / -1;
+  grid-column: span 2 !important;
 }
 
 .resume__timeline-card:hover {

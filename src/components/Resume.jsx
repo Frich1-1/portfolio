@@ -102,7 +102,7 @@ export default function Resume() {
               
               <div className="resume__timeline-list resume__timeline-list--grid">
                 {workExperience.map((work, idx) => (
-                  <div key={idx} className={`resume__timeline-card ${idx === workExperience.length - 1 && workExperience.length % 2 !== 0 ? 'resume__timeline-card--full' : ''}`}>
+                  <div key={idx} className={`resume__timeline-card ${idx === 2 ? 'resume__timeline-card--full' : ''}`}>
                     <span className="resume__card-period">{work.period}</span>
                     <h4 className="resume__card-role">{work.role}</h4>
                     <h5 className="resume__card-company">{work.company}</h5>
