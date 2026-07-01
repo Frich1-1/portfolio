@@ -43,7 +43,6 @@ export default function Hero() {
           <div className="hero__tags">
             <p>👨🏻‍💻 Informatics Student + Tech Enthusiast</p>
             <p>Leader + Problem Solver + Digital Innovator</p>
-            <p>+ Software Engineer ⚡🚀</p>
           </div>
 
           <p className="hero__skills-text">

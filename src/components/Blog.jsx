@@ -1,4 +1,4 @@
-import { Trophy, Mic2, Star, Users, ArrowRight, Quote } from 'lucide-react';
+import { Trophy, Mic2, Star, Users, ArrowRight } from 'lucide-react';
 import './Blog.css';
 
 const journey = [
@@ -56,17 +56,6 @@ export default function Blog() {
           <p className="section-subtitle">
             How competitive debate shaped my thinking, my confidence, and who I am today.
           </p>
-        </div>
-
-        {/* Personal Quote */}
-        <div className="blog__quote">
-          <Quote className="blog__quote-icon" size={28} />
-          <p className="blog__quote-text">
-            Debating taught me that winning an argument isn't about being loud — it's about being
-            precise, strategic, and relentlessly prepared. It didn't just train my brain for logic;
-            it built the confidence to be whoever I am now.
-          </p>
-          <span className="blog__quote-author">— Richie Frederico Wong</span>
         </div>
 
         {/* Timeline Cards */}
