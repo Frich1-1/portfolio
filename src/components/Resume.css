@@ -127,6 +127,10 @@
   border-left: 3px solid var(--color-primary-400);
 }
 
+.resume__timeline-card--full {
+  grid-column: 1 / -1;
+}
+
 .resume__timeline-card:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
